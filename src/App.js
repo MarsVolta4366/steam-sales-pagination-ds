@@ -1,25 +1,22 @@
-import logo from './logo.svg';
-import './App.css';
+// Activity: https://dev.to/joefstack/handling-multi-page-api-calls-with-react-hooks-19jd
+// ON STEP: Setting Up Our Search Form
+
+import { useState } from "react"
+import useFetchGames from "./helpers/useFetchGames"
 
 function App() {
+
+  const [params, setParams] = useState({})
+  const [page, setPage] = useState(0)
+  const { games, loading, error, hasNextPage } = useFetchGames(params, page)
+
+  console.log(games, loading, error, hasNextPage)
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div>
+      <h1>Search Steam Sales</h1>
     </div>
-  );
+  )
 }
 
-export default App;
+export default App
