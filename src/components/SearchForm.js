@@ -2,13 +2,13 @@ import { Form, Col } from "react-bootstrap"
 
 const SearchForm = ({ params, onParamChange }) => {
     return (
-        <Form>
+        <Form className="mb-4">
             <Form.Group as={Col}>
                 <Form.Label>Title</Form.Label>
                 <Form.Control
                     placeholder="eg. Bioshock"
                     onChange={onParamChange}
-                    value={params.title}
+                    value={params.title || ""}
                     name="title"
                     type="text"
                 />
@@ -18,7 +18,7 @@ const SearchForm = ({ params, onParamChange }) => {
                 <Form.Control
                     placeholder="eg. 29.99"
                     onChange={onParamChange}
-                    value={params.upperPrice}
+                    value={params.upperPrice || ""}
                     name="upperPrice"
                     type="text"
                 />
@@ -28,7 +28,7 @@ const SearchForm = ({ params, onParamChange }) => {
                 <Form.Control
                     placeholder="eg. 5.99"
                     onChange={onParamChange}
-                    value={params.lowerPrice}
+                    value={params.lowerPrice || ""}
                     name="lowerPrice"
                     type="text"
                 />
