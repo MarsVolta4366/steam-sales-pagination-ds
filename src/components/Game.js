@@ -24,7 +24,7 @@ const Game = ({ game }) => {
                     />
                 </div>
                 <Button
-                    variant="success"
+                    variant="primary"
                     href={`https://store.steampowered.com/app/${game.steamAppID}`}
                     target="_blank"
                 >

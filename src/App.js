@@ -19,9 +19,15 @@ function App() {
     const param = e.target.name
     const value = e.target.value
     setPage(0)
-    setParams((prevParams) => {
-      return { ...prevParams, [param]: value }
-    })
+    if (param === "upperPrice" && value.length === 0) {
+      setParams((prevParams) => {
+        return { ...prevParams, upperPrice: undefined }
+      })
+    } else {
+      setParams((prevParams) => {
+        return { ...prevParams, [param]: value }
+      })
+    }
   }
 
   return (
