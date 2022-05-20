@@ -1,8 +1,9 @@
 // Activity: https://dev.to/joefstack/handling-multi-page-api-calls-with-react-hooks-19jd
-// ON STEP: Setting Up Our Search Form
+// ON STEP: Displaying Our Results
 
 import { useState } from "react"
 import useFetchGames from "./helpers/useFetchGames"
+import SearchForm from "./components/SearchForm"
 
 function App() {
 
@@ -12,9 +13,19 @@ function App() {
 
   console.log(games, loading, error, hasNextPage)
 
+  const handleParamChange = (e) => {
+    const param = e.target.name
+    const value = e.target.value
+    setPage(0)
+    setParams((prevParams) => {
+      return { ...prevParams, [param]: value }
+    })
+  }
+
   return (
     <div>
       <h1>Search Steam Sales</h1>
+      <SearchForm params={params} onParamChange={handleParamChange} />
     </div>
   )
 }
